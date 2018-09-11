@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="普通证书的申请证书申请主要分以下二步：  1.创建Certificates 2.创建 AppID创建Certificates登录 Apple Member Center进入主页面   点击之后如下 点击新建按钮 这里用发布说明，选中发布之后点击底部Continue继续，再点击继续到选择 CSR 文件，如果有这个文件直接选择，没有的话看下面的操作 打开 Mac 中 钥匙串 应用 从证书颁发机构请求证">
+<meta name="keywords" content="代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 普通证书与推送证书的申请">
+<meta property="og:url" content="http://yoursite.com/2018/09/11/iOS 普通证书与推送证书的申请/index.html">
+<meta property="og:site_name" content="马上世界">
+<meta property="og:description" content="普通证书的申请证书申请主要分以下二步：  1.创建Certificates 2.创建 AppID创建Certificates登录 Apple Member Center进入主页面   点击之后如下 点击新建按钮 这里用发布说明，选中发布之后点击底部Continue继续，再点击继续到选择 CSR 文件，如果有这个文件直接选择，没有的话看下面的操作 打开 Mac 中 钥匙串 应用 从证书颁发机构请求证">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-b3f490fcfee29b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-6f41a4fa172a2ea8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-f9df99a9dc9728b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-40d9c8d6d7d4eb82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-1ab4611410ce38f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-bf01a3c480c9c0c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-67f6fd795a5da64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-062769853e6e5bc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-d5f12ad6176b508e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-9f9bbce08deae88d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-e68712ecf426515a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-ee076bbfbfcfd409.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-f9b04d8175dc9a60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-4bc6251dcbc0eb49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-c7b83605eedef67b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-386b461100b5e8b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-542b6c5ea6726d91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-b315d2f3d281c082.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-07de6985d4cd8c93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-eced37be99bb7d89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-31d5fafa61d3db8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-b2712ca49f52b64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-502c6947230546f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2476209-ca88cc08fd5394de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-11T06:22:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 普通证书与推送证书的申请">
+<meta name="twitter:description" content="普通证书的申请证书申请主要分以下二步：  1.创建Certificates 2.创建 AppID创建Certificates登录 Apple Member Center进入主页面   点击之后如下 点击新建按钮 这里用发布说明，选中发布之后点击底部Continue继续，再点击继续到选择 CSR 文件，如果有这个文件直接选择，没有的话看下面的操作 打开 Mac 中 钥匙串 应用 从证书颁发机构请求证">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2476209-b3f490fcfee29b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/11/iOS 普通证书与推送证书的申请/"/>
+
+
+
+
+
+  <title>iOS 普通证书与推送证书的申请 | 马上世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">马上世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/iOS 普通证书与推送证书的申请/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="千江月_Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="马上世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 普通证书与推送证书的申请</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T10:42:17+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="普通证书的申请"><a href="#普通证书的申请" class="headerlink" title="普通证书的申请"></a>普通证书的申请</h3><p>证书申请主要分以下二步：</p>
+<ul>
+<li>1.创建Certificates</li>
+<li>2.创建 AppID<h3 id="创建Certificates"><a href="#创建Certificates" class="headerlink" title="创建Certificates"></a>创建Certificates</h3>登录 <a href="https://developer.apple.com/membercenter" target="_blank" rel="noopener">Apple Member Center</a><br>进入主页面 <img src="https://upload-images.jianshu.io/upload_images/2476209-b3f490fcfee29b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+<p>点击之后如下</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-6f41a4fa172a2ea8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>点击新建按钮<br><img src="https://upload-images.jianshu.io/upload_images/2476209-f9df99a9dc9728b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这里用发布说明，选中发布之后点击底部<strong>Continue</strong>继续，再点击继续到<img src="https://upload-images.jianshu.io/upload_images/2476209-40d9c8d6d7d4eb82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Choose file.png"><br>选择 CSR 文件，如果有这个文件直接选择，没有的话看下面的操作</p>
+<p>打开 Mac 中 <strong>钥匙串</strong> 应用<br><img src="https://upload-images.jianshu.io/upload_images/2476209-1ab4611410ce38f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>从证书颁发机构请求证书后弹出下图，点击继续将证书信息存到桌面，CSR 可一直使用，以后用到时可以直接使用<br><img src="https://upload-images.jianshu.io/upload_images/2476209-bf01a3c480c9c0c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>现在回到 <strong>Choose file</strong>,选择刚才存储的 CSR，点击继续</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-67f6fd795a5da64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-062769853e6e5bc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>此时证书边创建完成了<br><img src="https://upload-images.jianshu.io/upload_images/2476209-d5f12ad6176b508e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="创建-AppID"><a href="#创建-AppID" class="headerlink" title="创建 AppID"></a>创建 AppID</h3><p><img src="https://upload-images.jianshu.io/upload_images/2476209-9f9bbce08deae88d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-e68712ecf426515a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-ee076bbfbfcfd409.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2476209-f9b04d8175dc9a60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>设置app 功能时注意普通证书可以直接点击 congtinue，进行下一步操作，如果包含推送通知就勾选 push Notification，当然如果有其他功能则选择其他。这里以通知为例继续下一步，<br><img src="https://upload-images.jianshu.io/upload_images/2476209-4bc6251dcbc0eb49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>此时点击 Register， appID就创建成功了，注意此时 Push Notification 显示黄色，表明还没有配置推送证书，接下来同样来创建推送证书。</p>
+<p>###二、推送证书的申请<br>在 App IDs中点击创建好的 appid<br><img src="https://upload-images.jianshu.io/upload_images/2476209-c7b83605eedef67b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>点击 Edit 进行编辑，如下：<br><img src="https://upload-images.jianshu.io/upload_images/2476209-386b461100b5e8b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这里同样以发布为例，点击 create certificate，这里创建证书和普通证书一样的过程不在赘述，创建成功之后如下：<br><img src="https://upload-images.jianshu.io/upload_images/2476209-542b6c5ea6726d91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>点击 download 之后双击会在钥匙串中显示<br><img src="https://upload-images.jianshu.io/upload_images/2476209-b315d2f3d281c082.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="最后创建配置性文件-Provisioning-Profiles"><a href="#最后创建配置性文件-Provisioning-Profiles" class="headerlink" title="最后创建配置性文件 Provisioning Profiles"></a>最后创建配置性文件 Provisioning Profiles</h3><p><img src="https://upload-images.jianshu.io/upload_images/2476209-07de6985d4cd8c93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/2476209-eced37be99bb7d89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>选中发布继续下一步<br><img src="https://upload-images.jianshu.io/upload_images/2476209-31d5fafa61d3db8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>此时会让你选择匹配的 AppID，这里就选择上文提到的 AppID Description，继续下一步<br><img src="https://upload-images.jianshu.io/upload_images/2476209-b2712ca49f52b64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>选择创建的普通证书，继续下一步<br><img src="https://upload-images.jianshu.io/upload_images/2476209-502c6947230546f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>命名之后继续下一步<br><img src="https://upload-images.jianshu.io/upload_images/2476209-ca88cc08fd5394de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>此时完成了配置文件的创建，可以去工程里发布应用了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/iOS屏幕旋转与锁屏/" rel="next" title="iOS屏幕旋转与锁屏">
+                <i class="fa fa-chevron-left"></i> iOS屏幕旋转与锁屏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/11/Analyze提示 Instance variable while 'self' is not set to the result of '[(super or self) init...]'/" rel="prev" title="iOS屏幕旋转与锁屏">
+                iOS屏幕旋转与锁屏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">千江月_Chen</p>
+              <p class="site-description motion-element" itemprop="description">千江有水千江月 万里无云万里天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/pcc518" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/32f777dfdc52" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通证书的申请"><span class="nav-number">1.</span> <span class="nav-text">普通证书的申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Certificates"><span class="nav-number">2.</span> <span class="nav-text">创建Certificates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-AppID"><span class="nav-number">3.</span> <span class="nav-text">创建 AppID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后创建配置性文件-Provisioning-Profiles"><span class="nav-number">4.</span> <span class="nav-text">最后创建配置性文件 Provisioning Profiles</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">千江月_Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
